@@ -12,7 +12,7 @@ import RPi.GPIO as GPIO
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',filename='example.log',level=logging.INFO)
 
 logger = logging.getLogger(__name__)
-
+my_token = None
 users = set()
 
 #o pino 12, no modo board, da raspberry deve ser conectado ao pino de saída de sinal do pir. Outro pino pode ser escolhido, sempre levando em conta as limitações de hardware
@@ -166,12 +166,15 @@ def switch_notifications(bot, update):
 	
 	
 def main():
+	if my_token == None:
+		print ("O Token NÃO FOI DEFINIDO, defina-o usando a variável my_id.")
+		exit();
 #configuração dos pinos de GPIO
 	GPIO.setmode(GPIO.BOARD)
 	GPIO.setup(pir_pin, GPIO.IN)
 
 	#O Token dado pelo BotFather na criação do seu bot
-	updater = Updater("371636126:AAElL1RIKgMelEvtPNT66h6kABAKNf6_jWY")
+	updater = Updater(my_token)
 #definição da variável global bot_instance, referência para o seu bot
 	global bot_instance
 	bot_instance = updater.bot
