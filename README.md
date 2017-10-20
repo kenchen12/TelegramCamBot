@@ -10,7 +10,11 @@ Uma aplicação desenvolvida em Python envolvendo Raspberry Pi, automação e Te
     o Reprodução de áudio
         -Sob demanda
         -Quando movimento é detectado
-        
+
+# Hardware
+
+# Arquitetura
+
 # Dependências
     o Programas
       - fswebcam
